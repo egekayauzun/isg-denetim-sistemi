@@ -1,6 +1,3 @@
-# Model dosyaları
-*.pt
-
 # Python cache
 __pycache__/
 *.pyc
