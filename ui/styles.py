@@ -3,9 +3,14 @@ import streamlit as st
 
 def inject_css():
     st.markdown(
+        '<link rel="preconnect" href="https://fonts.googleapis.com">'
+        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+        '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
         """
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         :root {
             --isg-primary: #0F766E;
@@ -487,6 +492,20 @@ def inject_css():
         .stCheckbox label span {
             font-size: 0.85rem !important;
             font-weight: 500 !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+
+        /* 3b. Label içindeki metin rengi (Streamlit temasından beyaz miras almasın) */
+        [data-testid="stCheckbox"] label p,
+        [data-testid="stCheckbox"] label [data-testid="stMarkdownContainer"] p,
+        [data-testid="stCheckbox"] label [data-testid="stWidgetLabel"] p,
+        .stCheckbox label p {
+            color: var(--isg-text) !important;
+            font-size: 0.85rem !important;
+            font-weight: 500 !important;
+            margin: 0 !important;
             white-space: nowrap !important;
             overflow: hidden !important;
             text-overflow: ellipsis !important;
